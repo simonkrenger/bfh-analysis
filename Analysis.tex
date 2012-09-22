@@ -6,6 +6,9 @@
 \usepackage[utf8]{inputenc} 
 \usepackage{graphicx}
 
+\usepackage{color}
+\definecolor{red}{rgb}{1,0,0}
+
 \newtheorem{mydef}{Definition}
 \newtheorem{myexample}{Beispiel}
 \newtheorem{myproof}{Beweis}
@@ -42,4 +45,47 @@ Für die Folge  (\ref{folgen:enum4}) finden wir das rekursive Gesetz
 \begin{equation}a_{n+1} = a_n + a_{n-1} \quad \mbox{und} \quad a_1=1, a_2=1\end{equation}
 für die \underline{Fibonacci-Folge}. Das explizite Gesetz ist schwierig zu finden.
 \section{Teilsummen}
+Wenn wir die Elemente einer Folge addieren, so erhalten wir die n-te Teilsumme
+\begin{equation}s_n = a_1 + a_2 + a_3 + ... + a_n \quad (n \in \mathbb{N})\end{equation}
+\begin{equation}s_n = \sum_{k=1}^{n} a_k \quad \mbox{("Summe $a_k$, k von 1 bis n")}\end{equation}
+Wollen wir zum Beispiel
+\begin{equation}1 + 2 + 3 + 4 + ... + 100\end{equation}
+berechnen, so greifen wir auf die Idee von Carl Friedrich Gauss (1777 bis 1855, Göttingen) zurück.
+\begin{eqnarray}s_{100} & = & (1 + 100) + (2 + 99) + ... + (50 + 51) \nonumber \\
+& = & 50 \cdot 101 \nonumber \\
+& = & 5050\end{eqnarray}
+Wollen wir
+\begin{equation}s_n = \frac{1}{2 \cdot 5} + \frac{1}{5 \cdot 8} + \frac{1}{8 \cdot 11} + ... + a_n\end{equation}
+berechnen, so bestimmen wir die \underline{Teilsummenfolge}.
+\begin{eqnarray}s_1 & = & \frac{1}{10}\\
+s_2 & = & \frac{1}{10} + \frac{1}{5 \cdot 8} = \frac{8 + 2}{2 \cdot 5 \cdot 8} = \frac{10}{80} = \frac{1}{8} \textcolor{red}{ = \frac{2}{16}}\\
+s_3 & = & \frac{1}{8} + \frac{1}{8 \cdot 11} = \frac{11 + 1}{8 \cdot 11} = \frac{12}{8 \cdot 11} = \frac{3}{22}\\
+s_4 & = & \frac{3}{22} + \frac{1}{11 \cdot 14} = \frac{42 + 2}{2 \cdot 11 \cdot 14} = \frac{2}{14} = \frac{1}{7} \textcolor{red}{ = \frac{4}{28}}\end{eqnarray}
+also finden wir
+\begin{equation}s_n = \frac{n}{6n + 4}\end{equation}
+Wir beweisen mit vollständiger Induktion.
+\begin{myproof}\begin{enumerate}
+\item \label{proof:teilsummenfolge-1} Behauptung ist für $n=1$ wahr, denn
+\begin{equation}s_1 = \frac{1}{10}\end{equation}
+und $s_n$ wird mit $n=1$ zu
+\begin{equation}s_1 = \frac{1}{6 \cdot 1 + 4} = \frac{1}{10}\end{equation}
+\item \label{proof:teilsummenfolge-2} Voraussetzung: 
+\begin{equation}s_n = \frac{n}{6n+4}\end{equation}
+Behauptung:
+\begin{equation}s_{n+1} = \frac{n+1}{6(n+1) + 4} = \frac{n+1}{6n+10}\end{equation}
+Beweis:
+\begin{equation}s_{n+1} = s_n + a_{n+1}\end{equation}
+und wir müssen $a_{n+1}$ bestimmen. Es ist
+\begin{equation}a_n = \frac{1}{(3n-1)(3n+2)}\end{equation}
+, also
+\begin{eqnarray}a_{n+1} & = & \frac{1}{(3(n+1)-1)(3(n+1)+2)} \\
+& = & \frac{1}{(3n+2)(3n+5)}\end{eqnarray}
+Somit ist
+\begin{eqnarray}s_{n+1} & = & \frac{n}{6n+4} + \frac{1}{(3n+2)(3n+5)} \\
+& = & \frac{n}{2(3n+2)} + \frac{1}{(3n+2)(3n+5)} \\
+& = & \frac{3n^2+5n+2}{2(3n+2)(3n+5)} \\
+& = & \frac{(3n+2)(n+1)}{2(3n+2)(3n+5)} \\
+& = & \frac{n+1}{2(3n+5)} = \frac{n+1}{6n+10}\end{eqnarray}
+\item Nach (\ref{proof:teilsummenfolge-1}) ist die Behauptung für $n=1$ wahr und nach (\ref{proof:teilsummenfolge-2}) für $n+1$, also für $n=2$ usw. Also ist die Behauptung für alle $\mathbb{N}$ wahr.
+\end{enumerate}\end{myproof}
 \end{document}

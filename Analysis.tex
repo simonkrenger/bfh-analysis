@@ -44,6 +44,7 @@ Bei (\ref{folgen:enum3}) also $a_n = (-1)^{n+2} \cdot 2^{n-4}$\\
 Für die Folge  (\ref{folgen:enum4}) finden wir das rekursive Gesetz
 \begin{equation}a_{n+1} = a_n + a_{n-1} \quad \mbox{und} \quad a_1=1, a_2=1\end{equation}
 für die \underline{Fibonacci-Folge}. Das explizite Gesetz ist schwierig zu finden.
+
 \section{Teilsummen}
 Wenn wir die Elemente einer Folge addieren, so erhalten wir die n-te Teilsumme
 \begin{equation}s_n = a_1 + a_2 + a_3 + ... + a_n \quad (n \in \mathbb{N})\end{equation}
@@ -88,4 +89,66 @@ Somit ist
 & = & \frac{n+1}{2(3n+5)} = \frac{n+1}{6n+10}\end{eqnarray}
 \item Nach (\ref{proof:teilsummenfolge-1}) ist die Behauptung für $n=1$ wahr und nach (\ref{proof:teilsummenfolge-2}) für $n+1$, also für $n=2$ usw. Also ist die Behauptung für alle $\mathbb{N}$ wahr.
 \end{enumerate}\end{myproof}
+Natürlich finden wir auch sofort
+\begin{equation}\sum_{k=1}^{n} k = 1 + 2 + ... + n = (1+n)\frac{n}{2}\end{equation}
+
+\section{Grenzwerte}
+Zeichnen wir die Elemente von
+\begin{equation}a_n = (-1)^n(2+\frac{1}{n})\end{equation}
+auf der Zahlengeraden,
+\\\\TODO\\\\
+so häufen sich die Werte bei 2 und -2. Sowohl in der Nähe von 2 als auch -2 liegen unendlich viele Werte.
+\begin{mydef}Wir nennen
+\begin{equation}U_\epsilon(a) := [a-\epsilon; a + \epsilon]; \epsilon \in \mathbb{R}^+\end{equation}
+eine \underline{$\epsilon$-Umgebung} von $a$.\end{mydef}
+\begin{mydef}Finden wir in jeder $\epsilon$-Umgebung einer Zahl $a$ unendlich-viele Folgenglieder, so heisst $a$ ein Häufungswert der Folge $(a_n)$.\end{mydef}
+\begin{myexample}\begin{enumerate}
+\item \begin{eqnarray}a_n & = & \frac{n+1}{n} \nonumber \\
+& \rightarrow & 2, 1.5, 1.\bar{3}, 1.25, 1.2, 1.16, 1.\bar{142857}\end{eqnarray}
+also ist 1 ein Häufungswert.
+\item \begin{eqnarray}b_n & = & 4n + 1 \nonumber \\
+& \rightarrow & 5, 9, 13, 17, ...\end{eqnarray}
+Also kein Häufungswert.\end{enumerate}\end{myexample}
+Besitzt eine Folge genau einen einzigen Häufungswert, so nennen wir diesen den \underline{Limes} (Grenzwert) der Folge und schreiben
+\begin{equation}\lim_{n \to \infty}a_n = a \end{equation}
+\begin{myexample}\begin{enumerate}
+\item \begin{equation}\lim_{n \to \infty}\frac{n+1}{n}=1\end{equation}
+\item \begin{equation}\lim_{n \to \infty}(-1)^n(2+\frac{1}{n})\end{equation}
+\item \begin{equation}\lim_{n \to \infty}\frac{1}{n}=0\end{equation}
+\end{enumerate}\end{myexample}
+\begin{mydef}Im Folgenden die Definition des Limes nach Cauchy (Louis Augustin Cauchy, 1789 bis 1857, Paris, Schweiz, Prag):\\
+Eine Zahlenfolge $(a_n)$ besitzt den Grenzwert $a$, wenn für alle $\epsilon > 0$ von einem bestimmten $n$ an, alle weiteren Folgenglieder in $U_\epsilon(a)$ liegen:
+\begin{equation}\epsilon \in \mathbb{R}, n_0 \in \mathbb{N}: \forall \epsilon > 0\exists n_0 \forall n (n > n_0 \to |a_n-a| < \epsilon)\end{equation}\end{mydef}
+\begin{myexample}$a_n = \frac{5}{n}$ hat Grenzwert $a=0$\\
+Ist $\epsilon = \frac{1}{100}$, so wird $n_0 = 500$, denn von $a_{501}$ an sind alle Folgenglieder zwischen $0,01$ und $0$.\end{myexample}
+\begin{mydef}Besitzt eine Folge einen Grenzwert, so heisst sie \underline{konvergent}, andernfalls \underline{divergent}. Folgen mit Grenzwert $0$ heissen \underline{Nullfolgen}.\end{mydef}
+\begin{myexample}Wir untersuchen diese Folgen:\begin{enumerate}
+\item \begin{equation}\lim_{n \to \infty}\frac{1}{n}=0, \lim_{n \to \infty}\frac{k}{n} = 0, k \in \mathbb{Z} \setminus \{0\}\end{equation}
+\item \begin{equation}\lim_{n \to \infty}\frac{1}{n^2}=0, \lim_{n \to \infty}\frac{k}{n^2} = 0, k \in \mathbb{Z} \setminus \{0\}\end{equation}
+\item \begin{equation}\lim_{n \to \infty}\frac{1}{n^k}=0, k \in \mathbb{N}\end{equation}
+\item \begin{equation}\lim_{n \to \infty}2^n\end{equation} existiert nicht, die Folge $a_n = 2^n$ \underline{wächst über alle Schranken}; sie ist also divergent.
+\item \begin{equation}\lim_{n \to \infty}(2+\frac{1}{n}) = \lim_{n \to \infty}2 + \lim_{n \to \infty}\frac{1}{n} = 2\end{equation}
+\item \begin{equation}\lim_{n \to \infty}\frac{3n^2+5}{n^2} = \lim_{n \to \infty}3 + \lim_{n \to \infty}\frac{5}{n^2} = 3\end{equation}
+\item \begin{equation}\lim_{n \to \infty}\frac{4n-7}{3n+1} \neq \frac{\lim_{n \to \infty}4n-7}{\lim_{n \to \infty}3n+1}\end{equation}
+\end{enumerate}\end{myexample}
+Wir brauchen die \underline{Grenzwertsätze}. Sind $(a_n)$ und $(b_n)$ konvergent mit $\lim_{n \to \infty}a_n = a, \lim_{n \to \infty}b_n = b$, so ist
+\begin{enumerate}
+\item \begin{equation}\lim_{n \to \infty}(a_n + b_n) = \lim_{n \to \infty}a_n + \lim_{n \to \infty}b_n = a + b\end{equation}
+\item \begin{equation}\lim_{n \to \infty}(a_n \cdot b_n) = \lim_{n \to \infty}a_n \cdot \lim_{n \to \infty}b_n = a \cdot b\end{equation}
+\item \begin{equation}\forall n (b_n \neq 0) \land b_n \neq 0 :\\
+\lim_{n \to \infty}\frac{a_n}{b_n} = \frac{\lim_{n \to \infty}a_n}{\lim_{n \to \infty}b_n} = \frac{a}{b}\end{equation}
+\end{enumerate}
+Um
+\begin{equation}\lim_{n \to \infty}\frac{5n-2}{6n+1}\end{equation}
+zu berechnen, überlegen wir, dass Brüche gekürzt werden können und kürzen mit n.
+\begin{eqnarray}\lim_{n \to \infty}\frac{5n-2}{6n+1} & = & \lim_{n \to \infty}\frac{\frac{5n-2}{n}}{\frac{6n+1}{n}} = \lim_{n \to \infty}\frac{\frac{5n}{n}-\frac{2}{n}}{\frac{6n}{n}+\frac{1}{n}} \nonumber \\
+= \lim_{n \to \infty}\frac{5-\frac{2}{n}}{6+\frac{1}{n}} & =  &\frac{\lim_{n \to \infty}(5-\frac{2}{n})}{\lim_{n \to \infty}(6+\frac{1}{n})} = \frac{5}{6}\end{eqnarray}
+\begin{myexample}Wir kürzen jeweils mit der Variabel ($n$) mit der höchsten Potenz:\begin{enumerate}
+\item \begin{eqnarray}\lim_{n \to \infty}\frac{2n^2+1}{4n^2-3} & = & \lim_{n \to \infty}\frac{\frac{2n^2}{n^2}+\frac{1}{n^2}}{\frac{4n^2}{n^2}-\frac{3}{n^2}} \nonumber \\ 
+= \lim_{n \to \infty}\frac{2+\frac{1}{n^2}}{4-\frac{3}{n^2}} & = & \frac{\lim_{n \to \infty}(2+\frac{1}{n^2})}{\lim_{n \to \infty}(4-\frac{3}{n^2})} = \frac{2}{4} = \frac{1}{2}\end{eqnarray}
+\item \begin{equation}\lim_{n \to \infty}\frac{n^2+2n+5}{n-7} = \lim_{n \to \infty}\frac{1+\frac{2}{n} + \frac{5}{n^2}}{\frac{1}{n} - \frac{7}{n^2}}\end{equation}
+existiert nicht.
+\item \begin{eqnarray}\lim_{n \to \infty}\frac{\sqrt{n}+\sqrt{n-1}}{\sqrt{n}-\sqrt{2n-1}} & = & \lim_{n \to \infty}\frac{\frac{\sqrt{n}}{\sqrt{n}}+\frac{\sqrt{n-1}}{\sqrt{n}}}{\frac{\sqrt{n}}{\sqrt{n}}-\frac{\sqrt{2n-1}}{\sqrt{n}}} = \lim_{n \to \infty}\frac{1+\frac{\sqrt{n-1}}{\sqrt{n}}}{1-\frac{\sqrt{2n-1}}{\sqrt{n}}} \nonumber \\
+= \lim_{n \to \infty}\frac{1+\sqrt{1-\frac{1}{n}}}{1-\sqrt{2-\frac{1}{n}}} &=& \frac{1+\sqrt{1}}{1-\sqrt{2}} = \frac{2}{1-\sqrt{2}}\end{eqnarray}
+\end{enumerate}\end{myexample}
 \end{document}

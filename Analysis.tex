@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage[utf8]{inputenc} 
 \usepackage{graphicx}
+\usepackage{mathtools}
 
 \usepackage{color}
 \definecolor{red}{rgb}{1,0,0}
@@ -131,6 +132,7 @@ Ist $\epsilon = \frac{1}{100}$, so wird $n_0 = 500$, denn von $a_{501}$ an sind 
 \item \begin{equation}\lim_{n \to \infty}\frac{3n^2+5}{n^2} = \lim_{n \to \infty}3 + \lim_{n \to \infty}\frac{5}{n^2} = 3\end{equation}
 \item \begin{equation}\lim_{n \to \infty}\frac{4n-7}{3n+1} \neq \frac{\lim_{n \to \infty}4n-7}{\lim_{n \to \infty}3n+1}\end{equation}
 \end{enumerate}\end{myexample}
+\newpage
 Wir brauchen die \underline{Grenzwertsätze}. Sind $(a_n)$ und $(b_n)$ konvergent mit $\lim_{n \to \infty}a_n = a, \lim_{n \to \infty}b_n = b$, so ist
 \begin{enumerate}
 \item \begin{equation}\lim_{n \to \infty}(a_n + b_n) = \lim_{n \to \infty}a_n + \lim_{n \to \infty}b_n = a + b\end{equation}
@@ -151,4 +153,174 @@ existiert nicht.
 \item \begin{eqnarray}\lim_{n \to \infty}\frac{\sqrt{n}+\sqrt{n-1}}{\sqrt{n}-\sqrt{2n-1}} & = & \lim_{n \to \infty}\frac{\frac{\sqrt{n}}{\sqrt{n}}+\frac{\sqrt{n-1}}{\sqrt{n}}}{\frac{\sqrt{n}}{\sqrt{n}}-\frac{\sqrt{2n-1}}{\sqrt{n}}} = \lim_{n \to \infty}\frac{1+\frac{\sqrt{n-1}}{\sqrt{n}}}{1-\frac{\sqrt{2n-1}}{\sqrt{n}}} \nonumber \\
 = \lim_{n \to \infty}\frac{1+\sqrt{1-\frac{1}{n}}}{1-\sqrt{2-\frac{1}{n}}} &=& \frac{1+\sqrt{1}}{1-\sqrt{2}} = \frac{2}{1-\sqrt{2}}\end{eqnarray}
 \end{enumerate}\end{myexample}
+\newpage
+Um
+\begin{equation}\lim_{n \to \infty} (1+\frac{1}{n})^n\end{equation}
+zu berechnen, bestimmen wir
+\\\\$a_{100} = 2,70481...$, $a_{1000} = 2,7169...$\\\\
+und finden, dass die Folge beschränkt ist. Es ist
+\begin{equation}\lim_{n \to \infty} (1 + \frac{1}{n})^1 = e\end{equation}
+und $e = 2,71828...$ ist irrational und transzendent.
+\begin{myexample}Wir betrachten\begin{enumerate}
+\item \begin{equation}\lim_{n \to \infty} ( 1 + \frac{1}{5n})^{5n} = e\end{equation}
+\item \begin{equation}\lim_{n \to \infty} ( 1 + \frac{1}{\frac{n}{3}})^{\frac{n}{3}} = e\end{equation}
+\item \begin{equation}\lim_{n \to \infty} ( 1 + \frac{1}{n})^{4n} = \lim_{n \to \infty}[ ( 1 + \frac{1}{n})^{n}]^4 = e^4\end{equation}
+\end{enumerate}\end{myexample}
+Wollen wir
+\begin{equation}\lim_{n \to \infty} ( 1 + \frac{k}{n})^n, k \in \mathbb{Z}\end{equation}
+berechnen, so überlegen wir, dass
+\begin{equation}1 + \frac{k}{n} ) 1 + \frac{1}{\frac{n}{k}}\end{equation}
+und finden
+\begin{equation}\lim_{n \to \infty} ( 1 + \frac{1}{\frac{n}{k}})^\frac{n}{k} = e\end{equation}
+Weiter ist dann
+\begin{equation}\lim_{n \to \infty} (1 + \frac{k}{n})^n = \lim_{n \to \infty}[(1 + \frac{k}{\frac{n}{k}})^\frac{n}{k}]^k = e^k\end{equation}
+und damit
+\begin{equation}\lim_{n \to \infty} (1 - \frac{1}{n})^n = \lim_{n \to \infty} (1 + \frac{-1}{n})^n = e^{-1}\end{equation}
+Zusammengefasst
+\begin{eqnarray}\lim_{n \to \infty} (1 + \frac{1}{n})^n & = & e\\
+\lim_{n \to \infty} (1 - \frac{1}{n})^n & = & \frac{1}{e} = e^{-1}\\
+\lim_{n \to \infty} (1 + \frac{k}{n})^n & = & e^k, k \in \mathbb{Z}\end{eqnarray}
+
+\section{Reihen}
+\begin{mydef}Ist $(a_n)$ eine Folge, so heisst
+\begin{equation}\sum_{n=1}^{\infty}a_n = a_1 + a_2 + a_3 + ...\end{equation}
+eine \underline{Reihe}.\end{mydef}
+Wollen wir
+\begin{equation}\sum_{n=1}^{\infty}\frac{1}{n (n+1)} = \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \frac{1}{3 \cdot 4} + ...\end{equation}
+bestimmen, so nützen wir
+\begin{equation}\frac{1}{n(n+1)} = \frac{1}{n}-\frac{1}{n+1}\end{equation}
+aus und erhalten so
+\begin{eqnarray}\sum_{n=1}^{\infty} \frac{1}{n (n+1)} & = & \sum_{n=1}^{\infty} \frac{1}{n}-\frac{1}{n+1}\nonumber \\
+& = & 1 - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} + \frac{1}{3} - \frac{1}{4} + ... = 1\end{eqnarray}
+Um die Reihe
+\begin{equation}\sum_{n=1}^{\infty} \frac{1}{(3n-1)(3n+2)}\end{equation}
+zu berechnen, bestimmen wir die \underline{Teilsummenfolge (Partialsummenfolge)}
+\\\\$s_1, s_2, s_3, ...$\\\\
+und überlegen dann, ob diese Folge einen Grenzwert besitzt.
+\begin{eqnarray}s_n & = & \sum_{k=1}^{\infty} \frac{1}{(3k-1)(3k+2)} \nonumber \\
+&=& \frac{1}{2 \cdot 5} + \frac{1}{5 \cdot 8} + \frac{1}{8 \cdot 11} + ... + a_n\end{eqnarray}
+und so
+\begin{eqnarray}s_1 & = & \frac{1}{10} \nonumber \\
+s_2 & = & \frac{1}{10} + \frac{1}{5 \cdot 8} = \frac{8+2}{2 \cdot 5 \cdot 8} = \frac{10}{80} = \frac{1}{8} (= \frac{2}{16}) \nonumber \\
+s_3 & = & \frac{1}{8} + \frac{1}{8 \cdot 11} = \frac{12}{8 \cdot 11} = \frac{3}{22}\end{eqnarray}
+, also
+\begin{equation}s_n = \frac{n}{6n+4}\end{equation}
+und so
+\begin{equation}\sum_{n=1}^{\infty} \frac{1}{(3n-1)(3n+2)} = \lim_{n \to \infty} \frac{n}{6n+4} = \frac{1}{6}\end{equation}
+Wir sagen dann, dass die Reihe konvergent ist und der \underline{Wert der Reihe} ist $\frac{1}{6}$.
+\begin{mydef}Wir nennen
+\begin{equation}\sum_{n=1}^{\infty} a_1 q^{n-1} = a_1 + a_1 q + a_1 q^2 + ... \quad \mbox{mit} \quad q \neq 0,1\end{equation}
+eine \underline{geometrische Reihe}.\end{mydef}
+\begin{myexample}\begin{enumerate}
+\item \begin{equation}\sum_{n=1}^{\infty} 2^{n-3} = \frac{1}{4} + \frac{1}{2} + 1 + 2 + 4 + ...\end{equation}
+\item \begin{equation}\sum_{n=1}^{\infty} 4(\frac{1}{3})^{n-1} = 4 + \frac{4}{3} + \frac{4}{9} + \frac{4}{27} + ...\end{equation}
+\end{enumerate}\end{myexample}
+Es ist also der \underline{Quotient} $q \neq 0,1$ zweier aufeinanderfolgenden Glieder stets gleich. Um Den Wert der Reihe zu bestimmen, betrachten wir
+\begin{eqnarray}s_n & = & a_1 + a_1 \cdot q + a_1 \cdot q^2 + ... + a_1 \cdot q^{n-1} \nonumber \\
+- ( q \cdot s_n & = & a_1 \cdot q + a_1 \cdot q^2 + a_1 \cdot q^3 + ... + a_1 \cdot q^n ) \nonumber \\\\
+s_n - q \cdot s_n & = & a_1 - a_1 \cdot q^n \nonumber \\
+s_n (1-q) & = &  a_1(1-q^n)\end{eqnarray}
+Damit
+\begin{equation}s_n = \frac{a_1(1-q^n)}{(1-q)} \quad \mbox{mit} \quad q \neq 0,1\end{equation}
+Dann ist
+\begin{equation}\sum_{n=1}^{\infty} a_1 q^{n-1} = \lim_{n \to \infty} \frac{a_1(1-q^n)}{(1-q)}\end{equation}
+und für $q > 1 \lor q < -1$ existiert der Grenzwert nicht. Für $-1 < q < 1$ ist
+\begin{equation}\lim_{n \to \infty}\frac{a_1(1-q^n)}{1-q} = \frac{a_1}{1-q} \quad \mbox{, da} \quad \lim_{n \to \infty}q^n = 0\end{equation}
+Also ist der Wert der geometrischen Reihe
+\begin{equation}\sum_{n=1}^{\infty}a_1q^{n-1} = \frac{a_1}{1-q} \quad \mbox{mit} \quad -1 < q < 1\end{equation}
+\begin{myexample}\begin{equation}2 - 1 + \frac{1}{2} - \frac{1}{4} + \frac{1}{8} - ... = \frac{2}{1-(-\frac{1}{2})} = \frac{4}{3}\end{equation}\end{myexample}
+\begin{mydef}Wir nennen
+\begin{equation}s = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + ...\end{equation}
+die \underline{harmonische Reihe}.\end{mydef}
+$s$ ist nicht konvergent, denn es ist
+\begin{equation}1 + \frac{1}{2} = \frac{3}{2}\end{equation}
+und
+\begin{equation}\frac{1}{3} + \frac{1}{4} = \frac{7}{12} \textcolor{red}{ = 0,5837... > \frac{1}{2}}\end{equation}
+und
+\begin{equation}\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} = \frac{533}{840} \textcolor{red}{ = 0.634... > \frac{1}{2}}\end{equation}
+also
+\begin{equation}s = 1 + \frac{1}{2} + \frac{1}{3} +\frac{1}{4} +\frac{1}{5} +\frac{1}{6} +\frac{1}{7} +\frac{1}{8} +\frac{1}{9} + ...\end{equation}
+So ist $s$ divergent! Hingegen ist
+\begin{equation}1 + \frac{1}{2!} +\frac{1}{3!} +\frac{1}{4!} + ... = \sum_{k=0}^{\infty} \frac{1}{k!} = e\end{equation}
+und
+\begin{equation}1 + \frac{1}{2^2} +\frac{1}{3^2} +\frac{1}{4^2} + ... = \frac{\pi^2}{6}\end{equation}
+und die \underline{Leibnizsche Reihe}
+\begin{equation}1 - \frac{1}{3} +\frac{1}{5} -\frac{1}{7} + \frac{1}{9} - ... = \frac{\pi}{4}\end{equation}
+
+\section{Stetigkeit}
+Wir wollen für eine Funktion
+\begin{equation}f: D_f \mapsto \mathbb{R}\end{equation}
+den Grenzwert
+\begin{equation}\lim_{x \to a} f(x)\end{equation}
+bestimmen. Dazu brauchen wir eine Folge
+\begin{equation}x_1, x_2, x_3, ...\end{equation}
+mit Grenzwert $a$.
+\\\\TODO: Graph\\\\
+Nun bestimmen wir die Folge
+\begin{equation}f(x_1), f(x_2), f(x_3), ...\end{equation}
+und suchen deren Limes.
+\\\\TODO: Graph\\\\
+Bei der Funktion $g$ mit einer \underline{Sprungstelle bei $a$} hat
+\begin{equation}g(x_1), g(x_2), ...\end{equation}
+den Limes $b$. Aber
+\begin{equation}g({x_1}'), g({x_2}'), ...\end{equation}
+hat den Limes $c$. Also existiert
+\begin{equation}\lim_{x \to a} g(x)\end{equation}
+nicht. Beide Reihen $(x_1, x_2, x_3, ...)$ $({x_1}', {x_2}', {x_3}')$ müssen den gleichen Grenzwert besitzen.\\
+Um
+\begin{equation}\lim_{x \to a} f(x)\end{equation}
+zu bestimmen, müssen \underline{alle} Folgen von x-Werten mit Grenzwert $a$ betrachtet werden. Wenn die Folgen der zugehörigen Funktionswerte alle denselben Limes besitzen, so ist dies $\lim_{x \to a} f(x)$.
+\begin{myexample}\begin{enumerate}
+\item \begin{equation}\lim_{x \to 1} x^2-2\end{equation}
+TODO
+\begin{equation}\lim_{x \to 1} x^2-2 = 1^2 -2 = -1\end{equation}
+\item \begin{equation}\lim_{x \to 3} \frac{1}{x-3}\end{equation}
+TODO\\\\
+$g(x) = \frac{1}{x-3}$ besitzt einen \underline{Pol bei $x = 3$}, also existiert $\lim_{x \to 3} \frac{1}{x-3}$ nicht.
+\item \begin{equation}\lim_{x \to 0} sgn(x) \quad \mbox{("Signum von x")}\end{equation}Es ist
+\[
+ sgn(x) := \begin{dcases*}
+        -1  &, falls $x < 0$\\
+        0 &, falls $x = 0$\\
+	1 & , falls $x > 0$
+        \end{dcases*}
+\]
+TODO\\\\
+$f: \mathbb{R} \mapsto \{ -1, 0, 1\}$ mit $f(x) = sgn(x)$ besitzt für $x=0$ einen \underline{isolierten Punkt (Einsiedler)}. Also existiert $\lim_{x \to 0} sgn(x)$ nicht.
+\end{enumerate}\end{myexample}
+Besitzt eine Funktion weder isolierte Punkte noch Sprungstellen, so ist sie \underline{stetig}.
+\begin{mydef}Eine Funktion $f: D_f \mapsto \mathbb{R}$ heisst \underline{stetig} an der Stelle $a \in D_f$, wenn
+\begin{equation}\lim_{x \to a} f(x) = f(a)\end{equation}
+\end{mydef}
+\begin{myexample}TODO\end{myexample}
+
+\chapter{Differentialrechnung}
+\section{Differentialquotient}
+Wir betrachten eine stetige Funktion
+\begin{equation}f: D_f \mapsto \mathbb{R}\end{equation}
+und suchen die Steigung der Tangente an dem Graphen an der Stelle $x_0 \in D_f$.
+\\\\TODO\\\\
+Die Tangente ist eine spezielle Lage der Sekante. Die Steigung der Sekante ist
+\begin{equation}m_s = \frac{\Delta y}{\Delta x} = \frac{f(x_0 + h) - f(x_0)}{h}\end{equation}
+, was wir den \underline{Differentialquotienten} nennen. Wird $h$ immer kleiner, so nähert sich die Sekante der Tangente. Also ist die Tangentensteigung
+\begin{equation}m_t = \lim_{n \to 0} \frac{f(x_0 + h) - f(x_0)}{h}\end{equation}
+\begin{mydef}Wir nennen
+\begin{equation}\frac{dy}{dx} := \lim_{n \to 0} \frac{f(x_0 + h) - f(x_0)}{h} \quad \mbox{("dy nach dx")}\end{equation}
+den \underline{Differentialquotienten}.\end{mydef}
+\begin{myexample}\begin{enumerate}
+\item TODO
+\item TODO
+\item TODO
+\end{enumerate}\end{myexample}
+Wir kennen den Berührungspunkt $B(x_0 / f(x_0)) = B (x_0 / y_0)$ der Tangente an den Graphen.\\
+Ist $y = mx + q$, so wird\\\\
+mit B: \begin{eqnarray}y_0 & = & m \cdot x_0 + q \nonumber \\
+q & = & y_0 - m \cdot x_0\end{eqnarray}
+also
+\begin{eqnarray}y & = & mx + y - mx_0 \nonumber \\
+y - y_0 & = & mx - mx_0 \nonumber \\
+y - y_0 & = & m(x - x_0) \end{eqnarray}
+Dies nennen wir die \underline{Punktsteigungsform der Geraden}. Im Beispiel ist $m = 3$ und $B(1/1)$, also
+\begin{eqnarray}t:& & y - 1 = 3(x-1) \nonumber \\
+t: & & y = 3x -2\end{eqnarray}
 \end{document}

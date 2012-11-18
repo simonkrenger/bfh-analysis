@@ -6,6 +6,7 @@
 \usepackage[utf8]{inputenc} 
 \usepackage{graphicx}
 \usepackage{mathtools}
+\usepackage{floatrow}
 
 \usepackage{color}
 \definecolor{red}{rgb}{1,0,0}
@@ -14,9 +15,10 @@
 \newtheorem{myexample}{Beispiel}
 \newtheorem{myproof}{Beweis}
 \newtheorem{axiom}{Axiom}
+\newtheorem{satz}{Satz}
 
 \title{Analysis}
-\author{Simon Krenger}
+\author{Simon Krenger\\Gilles Bertholet}
 
 \begin{document}
 \maketitle
@@ -272,10 +274,10 @@ Um
 zu bestimmen, müssen \underline{alle} Folgen von x-Werten mit Grenzwert $a$ betrachtet werden. Wenn die Folgen der zugehörigen Funktionswerte alle denselben Limes besitzen, so ist dies $\lim_{x \to a} f(x)$.
 \begin{myexample}\begin{enumerate}
 \item \begin{equation}\lim_{x \to 1} x^2-2\end{equation}
-TODO
+\begin{center}\includegraphics[scale=0.2]{images/limes_x2-2.eps}\end{center}
 \begin{equation}\lim_{x \to 1} x^2-2 = 1^2 -2 = -1\end{equation}
 \item \begin{equation}\lim_{x \to 3} \frac{1}{x-3}\end{equation}
-TODO\\\\
+\begin{center}\includegraphics[scale=0.2]{images/limes_x-3.eps}\end{center}
 $g(x) = \frac{1}{x-3}$ besitzt einen \underline{Pol bei $x = 3$}, also existiert $\lim_{x \to 3} \frac{1}{x-3}$ nicht.
 \item \begin{equation}\lim_{x \to 0} sgn(x) \quad \mbox{("Signum von x")}\end{equation}Es ist
 \[
@@ -285,14 +287,25 @@ $g(x) = \frac{1}{x-3}$ besitzt einen \underline{Pol bei $x = 3$}, also existiert
 	1 & , falls $x > 0$
         \end{dcases*}
 \]
-TODO\\\\
+\begin{center}\includegraphics[scale=0.2]{images/limes_sgn_x.eps}\end{center}
 $f: \mathbb{R} \mapsto \{ -1, 0, 1\}$ mit $f(x) = sgn(x)$ besitzt für $x=0$ einen \underline{isolierten Punkt (Einsiedler)}. Also existiert $\lim_{x \to 0} sgn(x)$ nicht.
+\item \begin{equation}f(x) = [x] \quad \mbox{("Gausssche Klammer")}\end{equation}
+\begin{center}\includegraphics[scale=0.2]{images/limes_floor_x.eps}\end{center}
 \end{enumerate}\end{myexample}
 Besitzt eine Funktion weder isolierte Punkte noch Sprungstellen, so ist sie \underline{stetig}.
 \begin{mydef}Eine Funktion $f: D_f \mapsto \mathbb{R}$ heisst \underline{stetig} an der Stelle $a \in D_f$, wenn
 \begin{equation}\lim_{x \to a} f(x) = f(a)\end{equation}
 \end{mydef}
-\begin{myexample}TODO\end{myexample}
+\begin{myexample}
+\begin{enumerate}
+\item \begin{equation}f(x) = x^3\end{equation}
+\begin{center}\includegraphics[scale=0.2]{images/limes_x3.eps}\end{center}
+$f$ ist überall stetig.
+\item \begin{equation}g: \mathbb{R} \setminus \{2\} \mapsto \mathbb{R} \quad \mbox{mit} \quad g(x) = \frac{1}{x+2}\end{equation}
+\begin{center}\includegraphics[scale=0.2]{images/limes_1_x-2.eps}\end{center}
+$g$ ist überall stetig, denn die Stetigkeit kann nur für Werte aus der Definitionsmenge untersucht werden! Zitat Müller: "Man muss den Funktionswert berechnen können. Kann man das, so ist die Funktion stetig".
+\end{enumerate}
+\end{myexample}
 
 \chapter{Differentialrechnung}
 \section{Differentialquotient}
@@ -308,9 +321,35 @@ Die Tangente ist eine spezielle Lage der Sekante. Die Steigung der Sekante ist
 \begin{equation}\frac{dy}{dx} := \lim_{n \to 0} \frac{f(x_0 + h) - f(x_0)}{h} \quad \mbox{("dy nach dx")}\end{equation}
 den \underline{Differentialquotienten}.\end{mydef}
 \begin{myexample}\begin{enumerate}
-\item TODO
-\item TODO
-\item TODO
+\item $ f:\mathbb{R} \mapsto \mathbb{R}$ mit $f(x) = x^2$ und $x_0 = 2$
+
+Mit \begin{equation} f(x_0) = f(2) = 4 \\ f(x_0 + h) = f(2 + h) = (2+h)^2 \end{equation}
+wird \begin{eqnarray} \frac{dy}{dx} & := & \lim_{h \to 0} \frac{(2+h)^2 - 4}{h} \\
+ & := & \lim_{h \to 0}  \frac{4 + 4h + h^2 - 4}{h} \\
+ & := & \lim_{h \to 0}  \frac{4h + h^2}{h} \\
+ & := & \lim_{h \to 0} 4 + h \\
+ & := & \underline{4} \end{eqnarray}
+\item $ g:\mathbb{R} \setminus \{0\} \mapsto \mathbb{R}$ mit $g(x) = \frac{1}{x}$ und $x_0 = -3$
+
+Mit \begin{equation} g(x_0) = g(-3) = -\frac{1}{3} \end{equation}
+und \begin{equation} g(x_0 + h) = g(-3 + h) = \frac{1}{h-3} \end{equation}
+\begin{eqnarray}
+ \frac{dy}{dx} & = & \lim_{h \to 0} \frac{\frac{1}{h-3} - (-\frac{1}{3})}{h} \\
+ & = & \lim_{h \to 0} \frac{\frac{1}{h-3} +\frac{1}{3}}{h} \\
+ & = & \lim_{h \to 0}  \frac{\frac{3 + h-3}{3(h-3)}}{\frac{h}{1}} \\
+ & = & \lim_{h \to 0} \frac{3+h-3}{3h(h-3)} \\
+ & = & \lim_{h \to 0} \frac{h}{3h(h-3)} \\
+ & = & \lim_{h \to 0} \frac{1}{3(h-3)} \\
+ & = & \underline{-\frac{1}{9}} \end{eqnarray}
+\item Gleichung der Tangente in $x_0 = 1$, wenn $ f:\mathbb{R} \mapsto \mathbb{R}$ mit $ f(x) = x^3$
+
+Steigung mit \begin{equation} f(x_0) = f(1) = 1 \end{equation}
+und \begin{equation} f(x_0 + h) = f(1 + h) = (1 + h)^3 = h^3 + 3h^2 + 3h + 1\end{equation}
+\begin{eqnarray}
+ \frac{dy}{dx} & = & \lim_{h \to 0} \frac{h^3 + 3h^2 + 3h + 1 - 1}{h} \\
+ & = & \lim_{h \to 0} \frac{h(h^2 + 3h + 3)}{h} \\
+ & = & \lim_{h \to 0} h^2 + 3h + 3 \\
+ & = & \underline{3} \end{eqnarray}
 \end{enumerate}\end{myexample}
 Wir kennen den Berührungspunkt $B(x_0 / f(x_0)) = B (x_0 / y_0)$ der Tangente an den Graphen.\\
 Ist $y = mx + q$, so wird\\\\
@@ -323,4 +362,158 @@ y - y_0 & = & m(x - x_0) \end{eqnarray}
 Dies nennen wir die \underline{Punktsteigungsform der Geraden}. Im Beispiel ist $m = 3$ und $B(1/1)$, also
 \begin{eqnarray}t:& & y - 1 = 3(x-1) \nonumber \\
 t: & & y = 3x -2\end{eqnarray}
+
+\section{Ableitung}
+Wir berechnen den Differentialquotienten für einen beliebigen Wert $x_0 \in D_f$. 
+Ist $f:\mathbb{R} \mapsto \mathbb{R}_0^+$ mit $f(x) = x^2$ so wird \begin{eqnarray}
+ \frac{dy}{dx} & = & \lim_{h \to 0} \frac{(x_0)^2 - x_0^2}{h} \nonumber \\
+ & = & \lim_{h \to 0} \frac{x_0^2 + 2x_0h + h^2 -x_0^2}{h}  \nonumber \\
+ & = & \lim_{h \to 0} \frac{2x_0h + h^2}{h}  \nonumber \\
+ & = & \lim_{h \to 0} 2x_0 + h \nonumber \\
+ & = & \underline{2x_0} \end{eqnarray}
+
+Ist $ g:\mathbb{R} \mapsto \mathbb{R}$ mit $ g(x) = x^3$ so wird \begin{eqnarray}
+\frac{dy}{dx} & = & \lim_{h \to 0} \frac{(x_0)^3 - x_0^3}{h} \nonumber \\
+& = & \lim_{h \to 0} \frac{1x_0^3 + 3x_0^2h + 3 x_0h^2 + h^3 + x_0^3}{h} \nonumber \\
+& = & \lim_{h \to 0} 3x_0^2 + 3x_0h + h^2  \nonumber \\
+& = & \underline{3x_0^2} \end{eqnarray}
+Ist $ h:\mathbb{R} \mapsto \{2\}$ mit $ h(x) = 2$, %graph29 1
+So ist $ \frac{dy}{dx} = 0$
+Ist $ i:\mathbb{R} \mapsto \mathbb{R}$ mit $ i(x) = x$ %graph29 2
+so ist $\frac{dy}{dx} = 1$
+
+Wie haben also jedem $x_0 \in D_f$ den Differentialquotienten zugeordnet und so eine Funktion gebildet. Schreiben wir $x$ anstatt $x_0$, so erhalten wir die \underline{1. Ableitung}.
+\begin{mydef} Ist $f: D_f \mapsto \mathbb{R}$ mit $y = f(x)$, so heisst \begin{equation}f'(x) = \lim_{h \to 0} \frac{f(x+h) -f(x)}{h}\end{equation}
+die \underline{1. Ableitung} von f.\end{mydef}
+Wir kennen also schon
+\begin{eqnarray}
+f(x) = k & \to & f'(x) = 0 \quad  (k \in \mathbb{R}) \\
+f(x) = x & \to & f'(x) = 1 \\
+f(x) = x^2 & \to & f'(x) = 2x \\
+f(x) = x^3 & \to & f'(x) = 3x^2 \end{eqnarray}
+\begin{satz}\begin{equation}f(x) = x^n \mapsto f'(x) = n \cdot x^{n-1}, n \in \mathbb{N}\end{equation}\end{satz}
+\begin{myproof}Mit \begin{eqnarray}f(x+h) & = & (x+h)^n \nonumber \\
+& = & x^n + nx^{n-1}h + \frac{n(n-1)}{2}x^{n-2}h^2+ ... + nxh^{n-1} + h^n\end{eqnarray}
+wird
+\begin{eqnarray}f(x+h)-f(x) & = & nx^{n-1}h + \frac{n(n-1)}{2}x^{n-2}h^2+ ... + h^n \nonumber \\
+& = & h(nx^{n-1}+\frac{n(n-1)}{2}x^{n-2}h + ... + h^{n-1})\end{eqnarray}
+und so
+\begin{eqnarray}f'(x) & = & \lim_{h \to 0}(nx^{n-1} + \frac{n(n-1)}{2}x^{n-2}h + ... + h^{n-1}) \nonumber \\
+& = & nx^{n-1}\end{eqnarray} \qed
+\end{myproof}
+\begin{myexample}
+\begin{equation}f(x) = x^5-x^3 \to f'(x) = 5x^4-3x^2\end{equation}
+\end{myexample}
+Die Ableitung ist ein Grenzwert und deshalb können wir die Grenzwertsätze zum teil übertragen:
+\begin{equation}k \in \mathbb{R}: (k \cdot f(x))' = k \cdot f'(x)\end{equation}
+\begin{equation}(f(x) + g(x))' = f'(x) + g'(x)\end{equation}
+\begin{myexample}Wir wenden diese Sätze an Beispielen an:
+\begin{enumerate}
+\item \begin{eqnarray}f(x) & = & 5x^4 + 2x^3 - 6x + 8 \nonumber \\
+\to f'(x) & = & (5x^4)' + (2x^3)' - (6x)' + (8)' \nonumber \\
+& = & 5(x^4)' + 2(x^3)' - 6(x)' + 0 \nonumber \\
+& = & 5(4x^3) + 2(3x^2) - 6 \nonumber \\
+& = & 20x^3 + 6x^2 - 6\end{eqnarray}
+\item \begin{eqnarray}g(x) & = & \frac{x^3}{7} + \frac{x^2}{9} - \frac{x}{2} \nonumber \\
+& = & \frac{1}{7}x^3 + \frac{1}{9}x^2 - \frac{1}{2}x \nonumber \\
+\to g'(x) & = & \frac{3x^2}{7} + \frac{2x}{9} - \frac{1}{2}\end{eqnarray}
+\item TODO
+\item TODO
+\end{enumerate}\end{myexample}
+Treten noch Parameter auf, so wird oft die Schreibweise nach Leibniz gewählt.
+\begin{myexample}TODO\end{myexample}
+Betrachten wir den Graphen einer Polynomfunktion $f$
+\\\\TODO\\\\
+So finden wir Punkte mit \underline{horizontalen Tangenten}; es ist also
+\begin{equation}f'(x)=0\end{equation}
+in
+\begin{itemize}
+\item den \underline{Hochpunkten} $H_1, H_2$
+\item \underline{Terrassenpunkt} (Scheitelpunkt $S$
+\item \underline{Tiefpunkt} $T$\end{itemize}
+\begin{myexample}Skizziere den Graphen von
+\begin{enumerate}
+\item $f: \mathbb{R} \mapsto \mathbb{R} \quad \mbox{mit} \quad f(x) = 3x-x^3$\\
+Mit TODO\end{enumerate}
+\end{myexample}
+\section{Ganzrationale Funktionen}
+\begin{mydef}Die Funktion $f: \mathbb{R} \mapsto \mathbb{R}$ mit \\
+\begin{eqnarray}f(x) & = & a_nx^n + a_{n-1}x^{n-1} + ... + a_2x^2 + a_1x + a_0 \nonumber \\
+& = & \sum_{k=0}^{n} a_kx^k \quad ; \quad a_k \in \mathbb{Q}, k \in \mathbb{N}\end{eqnarray}
+heisst \underline{ganzrationale Funktion (Polynomfunktion) n. Grades.}\end{mydef}
+Suchen wir die Nullstellen, so müssen wir eine Gleichung n-ten Grades lösen; diese ist bekanntlich für $n \geq 5$ nur durch Näherung lösbar (Nils Henrik Abel).\\\\
+Manchmal können wir aber in Faktoren zerlegen, wie bei
+\begin{equation}f(x) = x^3 - 11x^2 + 30x\end{equation}
+$f(x)=0$, wenn
+\begin{eqnarray}x(x^2 - 11x + 30) & = & 0\nonumber \\
+x(x-5)(x-6) & = & 0\nonumber \\
+\to x_1 = 0, x_2 = 5, x_3 = 6\end{eqnarray}
+Auch bei
+\begin{equation}g(x) = x^3 - 6x^2 + 9x\end{equation}
+zerlegen wir in Faktoren.\\
+$g(x)=0$, wenn
+\begin{eqnarray}x(x^2 - 6x + 9) & = & 0\nonumber \\
+x(x-3)(x-3) & = & 0\nonumber \\
+\to x_1 = 0, x_2 = 3, x_3 = 3\end{eqnarray}
+Wie unterscheiden sich $G_f$ und $G_g$?
+\begin{center}
+\includegraphics[scale=0.3]{images/ganzrationale_funkt_1.eps}
+\end{center}
+Der $G_g$ berührt bei $x=3$ die x-Achse. Wir nennen $x_{2,3}=3$ eine \underline{doppelte Nullstelle}.\\\\
+Die Funktion
+\begin{equation}h : \mathbb{R} \mapsto \mathbb{R} \quad \mbox{mit} \quad h(x) = (x-1)(x+3)^3\end{equation}
+besitzt
+\begin{itemize}
+\item eine einfache Nullstelle $x_1 = 1$
+\item die \underline{dreifache Nullstelle} $x_{2,3,4} = -3$\end{itemize}
+\begin{center}
+\includegraphics[scale=0.3]{images/ganzrationale_funkt_h.eps}
+\end{center}
+Der Graph besitzt einen \underline{Terrassenpunkt}. Ist die Nullstelle \underline{vierfach} wie bei
+\begin{equation}i: \mathbb{R} \mapsto \mathbb{R} \quad \mbox{mit} \quad i(x) = (x+2)(x-3)^4\end{equation}
+so besitzt der Graph einen \underline{Flachpunkt} auf der x-Achse.
+\begin{center}
+\includegraphics[scale=0.3]{images/ganzrationale_funkt_i.eps}
+\end{center}
+\begin{satz}Es gilt auch
+\begin{equation}f(x) = x^n \to f'(x) = nx^{n-1} \quad \mbox{gilt für} \quad n \in \mathbb{Z}\end{equation}
+Beweis mit vollständiger Induktion.\end{satz}
+\begin{satz}Weiter ist
+\begin{equation}f(x) = x^r \to f'(x) = r \cdot x^{r-1} \quad \mbox{gilt für} \quad r \in \mathbb{Q}\end{equation}
+Beweis siehe Literatur.\end{satz}
+\begin{myexample}\begin{eqnarray}f(x) & = & \sqrt[3]{x} + \frac{1}{\sqrt{x}} = x^{\frac{1}{3}} + x^{-\frac{1}{2}} \nonumber \\
+f'(x) & = & \frac{1}{3}x^{\frac{1}{3}-1} + (-\frac{1}{2})x^{-\frac{1}{2}-1} \nonumber \\
+& = & \frac{1}{3}x^{-\frac{2}{3}}-\frac{1}{2}x^{-\frac{3}{2}}\nonumber \\
+& = & \frac{1}{3\sqrt[3]{x^2}} - \frac{1}{2\sqrt{x^3}} 
+\end{eqnarray}\end{myexample}
+\section{Höhere Ableitungen und Kurvendiskussion}
+Ist $f$ eine differenzierbare Funktion und $f'$ ihre 1. Ableitung, so können wir $f'$ erneut ableiten und erhalten die \underline{2. Ableitung f''}. Fahren wir so fort, so entstehen $f''$, $f^{(4)}$, $f^{(5)}$ ... und schliesslich die \underline{n-te Ableitung $f^{(n)}$}.
+\begin{myexample}\begin{equation}f: \mathbb{R} \mapsto \mathbb{R} \quad \mbox{mit} \quad f(x) = 4x^3+2x^2 -6x+10\end{equation}
+\begin{eqnarray}\to f'(x) & = & 12x^2 + 4x -6 \nonumber \\
+f''(x) & = & 24x + 4 \nonumber \\
+f'''(x) & = & 24 \nonumber \\
+f^{(4)}(x) & = & f^{(5)}(x) = f^{(n)}(x) = 0 
+\end{eqnarray}\end{myexample}
+Welche Informationen für $f$ erhalten wir mit $f''$?
+\\\\TODO\\\\
+\begin{itemize}
+\item Ist $f'(x) = 0$ und $f'(x) < 0$, so besitzt $f$ ein \underline{relatives Maximum} und $G_f$ einen \underline{Hochpunkt}. (Bsp: $x_2$)
+\item Ist $f'(x) = 0$und $f''(x) > 0$, so besitzt $f$ ein \underline{relatives Minimum} und $G_f$ einen \underline{Tiefpunkt}. (Bsp: $x_1, x_3$)
+\item Ist $f'(x) = 0$ und $f''(x) = 0$, so besitzt $G_f$ einen \underline{Terassenpunkt}. (Bsp: $x_3$)
+\item Ist $f''(x) > 0$, so ist $G_f$ \underline{konvex} oder \underline{linksgekrümmt}.
+\item Ist $f''(x) < 0$, so ist $G_f$ \underline{konkav} oder \underline{rechtsgekrümmt}.
+\item Ist $f''(x) = 0$, so besitzt $G_f$ einen \underline{Wendepunkt}
+\end{itemize}
+Bei einer \underline{Kurvendiskussion} bestimmen wir
+\begin{itemize}
+\item Nullstellen ($f(x) = 0$)
+\item Extremwerte (mit horizontalen Tangenten ($f'(x)=0$))
+\item Wendepunkte ($f''(x)=0$)
+\item Graph
+\end{itemize}
+\begin{myexample}
+\begin{enumerate}
+\item TODO
+\item TODO\end{enumerate}
+\end{myexample}
 \end{document}

@@ -513,7 +513,38 @@ Bei einer \underline{Kurvendiskussion} bestimmen wir
 \end{itemize}
 \begin{myexample}
 \begin{enumerate}
-\item TODO
+\item TODOs
 \item TODO\end{enumerate}
 \end{myexample}
+\section{Extremalwertprobleme}
+Stellen wir uns die Frage nach dem kleinsten Benzinverbrauch, dem grössten Gewinn usw. und gelingt es uns, das Problem mit Hilfe einer Funktion zu formulieren, so können wir die Lösung mit der Differenzialrechnung finden.
+\\\\TODO\\\\
+Wie müssen wir Länge und Breite wählen, um mit 400m Maschendrahtzaun die grösstmögliche Fläche zu umzäunen?
+\begin{enumerate}
+\item \underline{Gesuchte Grösse berechnen}
+\begin{equation}F = a \cdot b\end{equation}
+\item \underline{Eine der auftretenden Grössen als Variable wählen}
+\begin{quote}$b$ sei die Variable\end{quote}
+\item \underline{Alle anderen Grössen mit Hilfe der Variablen und den bekannten Werten bestimmen}
+\begin{eqnarray}a + 2b & = & 400 \nonumber \\
+a & = & 400 - 2b\end{eqnarray}
+\item \underline{Funktion und Definitionsmenge bestimmen}
+\begin{eqnarray}F(b) & = & (400 - 2b) \cdot b\nonumber \\
+& = & 400b - 2b^2\end{eqnarray}
+mit
+\begin{eqnarray}D_f & = & \{ b \quad | \quad 0 < b < 200 \quad \land \quad b \in \mathbb{R}\}\nonumber \\
+& = & ]0;200[\end{eqnarray}
+\\\\TODO: Graphs\\\\
+\item \underline{Extremwerte berechnen}
+\begin{equation}F'(b) = 400- 4b\end{equation}
+$F'(b)$ ist $0$, wenn $b = 100$
+\item \underline{Lösung diskutieren und alle gesuchten Grössen berechnen}
+\\\\$b \in D_f$ und mit $F''(b) = -4$ wird $F''(100) < 0$, also ist bei $b = 100$ ein lokales Maximum.\\
+Also ist $b=100, a=200$ und $F_{max} = 20000$
+\end{enumerate}
+Wählen wir einen Halbkreis, also ist
+\begin{quote}$U = 400 = r \cdot \pi \rightarrow r = \frac{400}{\pi}$\end{quote}
+und so
+\begin{equation}F(Halbkreis) = \frac{r^2 \pi}{2} = \frac{\pi}{2}(\frac{400}{\pi})^2 = \frac{400^2}{2 \pi} = 25464,79\end{equation}
+
 \end{document}

@@ -318,13 +318,13 @@ Die Tangente ist eine spezielle Lage der Sekante. Die Steigung der Sekante ist
 , was wir den \underline{Differentialquotienten} nennen. Wird $h$ immer kleiner, so nähert sich die Sekante der Tangente. Also ist die Tangentensteigung
 \begin{equation}m_t = \lim_{n \to 0} \frac{f(x_0 + h) - f(x_0)}{h}\end{equation}
 \begin{mydef}Wir nennen
-\begin{equation}\frac{dy}{dx} := \lim_{n \to 0} \frac{f(x_0 + h) - f(x_0)}{h} \quad \mbox{("dy nach dx")}\end{equation}
+\begin{equation}\frac{\mathrm{d}y}{\mathrm{d}x} := \lim_{n \to 0} \frac{f(x_0 + h) - f(x_0)}{h} \quad \mbox{("dy nach dx")}\end{equation}
 den \underline{Differentialquotienten}.\end{mydef}
 \begin{myexample}\begin{enumerate}
 \item $ f:\mathbb{R} \mapsto \mathbb{R}$ mit $f(x) = x^2$ und $x_0 = 2$
 
 Mit \begin{equation} f(x_0) = f(2) = 4 \\ f(x_0 + h) = f(2 + h) = (2+h)^2 \end{equation}
-wird \begin{eqnarray} \frac{dy}{dx} & := & \lim_{h \to 0} \frac{(2+h)^2 - 4}{h} \\
+wird \begin{eqnarray} \frac{\mathrm{d}y}{\mathrm{d}x} & := & \lim_{h \to 0} \frac{(2+h)^2 - 4}{h} \\
  & := & \lim_{h \to 0}  \frac{4 + 4h + h^2 - 4}{h} \\
  & := & \lim_{h \to 0}  \frac{4h + h^2}{h} \\
  & := & \lim_{h \to 0} 4 + h \\
@@ -334,7 +334,7 @@ wird \begin{eqnarray} \frac{dy}{dx} & := & \lim_{h \to 0} \frac{(2+h)^2 - 4}{h} 
 Mit \begin{equation} g(x_0) = g(-3) = -\frac{1}{3} \end{equation}
 und \begin{equation} g(x_0 + h) = g(-3 + h) = \frac{1}{h-3} \end{equation}
 \begin{eqnarray}
- \frac{dy}{dx} & = & \lim_{h \to 0} \frac{\frac{1}{h-3} - (-\frac{1}{3})}{h} \\
+ \frac{\mathrm{d}y}{\mathrm{d}x} & = & \lim_{h \to 0} \frac{\frac{1}{h-3} - (-\frac{1}{3})}{h} \\
  & = & \lim_{h \to 0} \frac{\frac{1}{h-3} +\frac{1}{3}}{h} \\
  & = & \lim_{h \to 0}  \frac{\frac{3 + h-3}{3(h-3)}}{\frac{h}{1}} \\
  & = & \lim_{h \to 0} \frac{3+h-3}{3h(h-3)} \\
@@ -346,7 +346,7 @@ und \begin{equation} g(x_0 + h) = g(-3 + h) = \frac{1}{h-3} \end{equation}
 Steigung mit \begin{equation} f(x_0) = f(1) = 1 \end{equation}
 und \begin{equation} f(x_0 + h) = f(1 + h) = (1 + h)^3 = h^3 + 3h^2 + 3h + 1\end{equation}
 \begin{eqnarray}
- \frac{dy}{dx} & = & \lim_{h \to 0} \frac{h^3 + 3h^2 + 3h + 1 - 1}{h} \\
+ \frac{\mathrm{d}y}{\mathrm{d}x} & = & \lim_{h \to 0} \frac{h^3 + 3h^2 + 3h + 1 - 1}{h} \\
  & = & \lim_{h \to 0} \frac{h(h^2 + 3h + 3)}{h} \\
  & = & \lim_{h \to 0} h^2 + 3h + 3 \\
  & = & \underline{3} \end{eqnarray}
@@ -366,21 +366,21 @@ t: & & y = 3x -2\end{eqnarray}
 \section{Ableitung}
 Wir berechnen den Differentialquotienten für einen beliebigen Wert $x_0 \in D_f$. 
 Ist $f:\mathbb{R} \mapsto \mathbb{R}_0^+$ mit $f(x) = x^2$ so wird \begin{eqnarray}
- \frac{dy}{dx} & = & \lim_{h \to 0} \frac{(x_0)^2 - x_0^2}{h} \nonumber \\
+ \frac{\mathrm{d}y}{\mathrm{d}x} & = & \lim_{h \to 0} \frac{(x_0)^2 - x_0^2}{h} \nonumber \\
  & = & \lim_{h \to 0} \frac{x_0^2 + 2x_0h + h^2 -x_0^2}{h}  \nonumber \\
  & = & \lim_{h \to 0} \frac{2x_0h + h^2}{h}  \nonumber \\
  & = & \lim_{h \to 0} 2x_0 + h \nonumber \\
  & = & \underline{2x_0} \end{eqnarray}
 
 Ist $ g:\mathbb{R} \mapsto \mathbb{R}$ mit $ g(x) = x^3$ so wird \begin{eqnarray}
-\frac{dy}{dx} & = & \lim_{h \to 0} \frac{(x_0)^3 - x_0^3}{h} \nonumber \\
+\frac{\mathrm{d}y}{\mathrm{d}x} & = & \lim_{h \to 0} \frac{(x_0)^3 - x_0^3}{h} \nonumber \\
 & = & \lim_{h \to 0} \frac{1x_0^3 + 3x_0^2h + 3 x_0h^2 + h^3 + x_0^3}{h} \nonumber \\
 & = & \lim_{h \to 0} 3x_0^2 + 3x_0h + h^2  \nonumber \\
 & = & \underline{3x_0^2} \end{eqnarray}
 Ist $ h:\mathbb{R} \mapsto \{2\}$ mit $ h(x) = 2$, %graph29 1
-So ist $ \frac{dy}{dx} = 0$
+So ist $ \frac{\mathrm{d}y}{\mathrm{d}x} = 0$
 Ist $ i:\mathbb{R} \mapsto \mathbb{R}$ mit $ i(x) = x$ %graph29 2
-so ist $\frac{dy}{dx} = 1$
+so ist $\frac{\mathrm{d}y}{\mathrm{d}x} = 1$
 
 Wie haben also jedem $x_0 \in D_f$ den Differentialquotienten zugeordnet und so eine Funktion gebildet. Schreiben wir $x$ anstatt $x_0$, so erhalten wir die \underline{1. Ableitung}.
 \begin{mydef} Ist $f: D_f \mapsto \mathbb{R}$ mit $y = f(x)$, so heisst \begin{equation}f'(x) = \lim_{h \to 0} \frac{f(x+h) -f(x)}{h}\end{equation}
@@ -546,5 +546,156 @@ Wählen wir einen Halbkreis, also ist
 \begin{quote}$U = 400 = r \cdot \pi \rightarrow r = \frac{400}{\pi}$\end{quote}
 und so
 \begin{equation}F(Halbkreis) = \frac{r^2 \pi}{2} = \frac{\pi}{2}(\frac{400}{\pi})^2 = \frac{400^2}{2 \pi} = 25464,79\end{equation}
+\begin{myproof}Beweis der Ableitung $f'(x)$: Wir beweisen mit vollständiger Induktion.
+\begin{enumerate}
+\item Behauptung ist für $n=1$ wahr, denn
+\begin{equation}\frac{dx}{dy} = \lim_{h \to 0}\frac{(x+h)^1 - x^1}{h} = \frac{h}{h} = 1\end{equation}
+und
+\begin{equation}1 \cdot x^{1-1} = 1 \cdot x^0 = 1\end{equation}
+\item Voraussetzung:
+\begin{equation}\frac{(x+h)^n - x^n}{h} = n \cdot x^{n-1}\end{equation}
+Behauptung:
+\begin{eqnarray}&&\lim_{h \to 0}\frac{(x+h)^{(n+1)} - x^{(n+1)}}{h} = n \cdot x^{n-1} \nonumber \\
+& = & \lim_{h \to 0}\frac{x^{n+1}h^0 + (n+1)x^nh^1 + ... + (n+1)x^1h^n + x^0h^{n+1}-x^{(n+1)}}{h} \nonumber \\
+& = & \lim_{h \to 0} (n+1) \cdot x^n + ... + x^0h^n \nonumber \\
+& = & (n+1)x^n\end{eqnarray}
+und
+\begin{equation}(n+1) \cdot x^{(n+1)-1} = (n+1) x^n\end{equation}
+\item Nach (1) gilt die Behauptung für $n=1$ und nach (2) gilt sie für $n+1$, falls sie für $n$ gilt. Also gilt sie für $n = 2$ und nach (2) für $n+1$, ist 3 usw. Also gilt die Behauptung für alle $n \in \mathbb{N}$. \end{enumerate}
+\qed\end{myproof}
+\section{Winkelfunktionen, Produktregel}
+Wir suchen die Ableitung von
+\begin{equation}f: \mathbb{R} \mapsto [-1 ; 1] \quad \mbox{mit} \quad f(x) = \sin x\end{equation}
+Mit
+\begin{equation}f'(x) = \lim_{h \to 0}\frac{\sin(x+h) - \sin x}{h}\end{equation}
+und
+\begin{equation}\sin \alpha - \sin \beta = 2 \cdot \cos(\frac{\alpha + \beta}{2}) \cdot \sin(\frac{\alpha - \beta}{2})\end{equation}
+wird
+\begin{eqnarray}\sin(x+h) - \sin x & = & 2 \cdot \cos(\frac{x+h+x}{2}) \cdot \sin(\frac{(x+h)-x}{2}) \nonumber \\
+& = & 2 \cdot \cos(\frac{2x + h}{2}) \sin(\frac{h}{2})\end{eqnarray}
+und damit
+\begin{eqnarray}f'(x) & = & \lim_{h \to 0} \frac{1}{h} \cdot (2\cos(\frac{2x+h}{2}) \cdot \sin(\frac{h}{2}) \nonumber \\
+& = & \lim_{h \to 0} \frac{2}{h} \cdot (\cos(\frac{2x+h}{2}) \cdot \sin(\frac{h}{2}) \nonumber \\
+& = & \lim_{h \to 0} \cos(\frac{2x + h}{h}) \cdot \frac{\sin(\frac{h}{2})}{\frac{h}{2}}\end{eqnarray}
+Um $\lim_{h \to 0} \frac{\sin \frac{h}{2}}{\frac{h}{2}}$ zu bestimmen, betrachten wir den Sinus im Einheitskreis bei $0$.
+\\\\TODO: Zeichnung\\\\
+Ist $\alpha$ im Bogenmass, so ist
+\begin{equation}\sin \alpha < \alpha < \tan \alpha\end{equation}
+\begin{equation}\sin \alpha < \alpha < \frac{\sin \alpha}{\cos \alpha}\end{equation}
+\begin{equation}1 < \frac{\alpha}{\sin \alpha} < \frac{1}{\cos \alpha}\end{equation}
+\begin{equation}1 > \frac{\sin \alpha}{\alpha} > \cos \alpha\end{equation}
+\begin{equation}1 \geq \lim_{\alpha \to 0} \frac{\sin \alpha}{\alpha} \geq \lim_{\alpha \to 0} \cos \alpha\end{equation}
+\begin{equation}1 \geq \lim_{\alpha \to 0} \frac{\sin \alpha}{\alpha} \geq 1\end{equation}
+\textcolor{red}{\begin{equation}\lim_{\alpha \to 0} \frac{\sin \alpha}{\alpha} = 1\end{equation}}
+Schliesslich finden wir
+\begin{eqnarray}f'(x) & = & \lim_{h \to 0} \cos \frac{2x+h}{2} \cdot \frac{\sin \frac{h}{2}}{\frac{h}{2}} \nonumber \\
+& = & \cos x \cdot 1 \nonumber \\
+& = & \cos x\end{eqnarray}
+\textcolor{red}{\begin{equation}f(x) = \sin x \quad \to \quad f'(x) = \cos x\end{equation}}
+Analog finden wir
+\begin{equation}g(x) = \cos x \quad \to \quad g'(x) = -\sin x\end{equation}
+\begin{myexample}\begin{enumerate}
+\item \begin{eqnarray}f(x) & = & x^2 + 3 \cdot \cos x \nonumber \\
+\to f'(x) & = & 2x - 3 \cdot \sin x\end{eqnarray}
+\item \begin{eqnarray}\lim_{\alpha \to 0} \frac{\sin (7 \alpha)}{4 \alpha} & = & \lim_{\alpha \to 0} \frac{\frac{7}{4} \sin(7 \alpha)}{\frac{7}{4} \cdot 4 \alpha} \nonumber \\
+& = & \lim_{\alpha \to 0} \frac{\frac{7}{4} \sin(7 \alpha)}{7 \alpha} \nonumber \\
+& = & \frac{7}{4} \lim_{\alpha \to 0} \frac{\sin(7\alpha)}{7 \alpha} \nonumber \\
+& = & \frac{7}{4} \cdot 1 = \frac{7}{4}\end{eqnarray}
+\item \begin{eqnarray}\lim_{\beta \to 0} \frac{\sin(2\beta)}{cos \beta} & = & \lim_{\beta \to 0} \frac{2 \sin \beta \cos \beta}{\cos \beta} \nonumber \\
+& = & \lim_{\beta \to 0} 2 \sin \beta = 0\end{eqnarray}
+\end{enumerate}\end{myexample}
+Um $f(x) = \sin(2x)$ ableiten zu können, formen wir zu
+\begin{equation}f(x) = 2 \cdot \sin x \cos x\end{equation}
+um. Wir brauchen also eine Regel, um das Produkt
+\begin{equation}h'(x) = f(x) \cdot g(x)\end{equation}
+zweier Funktionen ableiten zu können. Es ist
+\begin{eqnarray}h'(x) & = & \lim_{h \to 0} \frac{f(x+h) \cdot g(x+h) - f(x)g(x)}{h} \nonumber \\
+& = & \lim_{h \to 0} \frac{f(x+h) \cdot g(x+h) - f(x) \cdot g(x+h) + f(x)\cdot g(x+h) - f(x)g(x)}{h} \nonumber \\
+& = & \lim_{h \to 0} \frac{f(x+h)g(x+h) - f(x)g(x+h)}{h} + \frac{f(x)g(x+h)-f(x)g(x)}{h} \nonumber \\
+& = & \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} g(x+h)+f(x) \cdot \frac{g(x+h)-g(x)}{h} \nonumber \\
+& = & f'(x) \cdot g(x) + f(x) \cdot g'(x)\end{eqnarray}
+Damit finden wir die Produktregel:
+\textcolor{red}{\begin{equation}(fg)' = f'g + fg'\end{equation}}
+\begin{myexample}Berechne die Ableitung von
+\begin{enumerate}
+\item \begin{eqnarray}f(x) & = & x^2 \cdot \cos(x) \\
+u(x) & = & x^2 \\
+v(x) & = & \cos(x)\end{eqnarray}
+Mit
+\begin{eqnarray}u'(x) & = & 2x \nonumber \\
+v'(x) & = & -\sin(x)\end{eqnarray}
+finden wir
+\begin{eqnarray}f'(x) & = & 2x \cdot \cos(x) + x^2 \cdot (-\sin(x)) \nonumber \\
+& = & 2x \cdot \cos(x) - x^2 \cdot \sin(x)\end{eqnarray}
+\item \begin{eqnarray}g(x) & = & \sin(2x) = 2 \sin(x) \cos(x) \nonumber \\
+& = & 2(\cos^2(x) - \sin^2(x)) \nonumber \\
+& = & 2 \cos(2x)\end{eqnarray}
+\end{enumerate}
+Wir werden zeigen, dass
+\begin{equation}(\sin(k \cdot x))' = k \cdot \cos(k \cdot x), \quad k \in \mathbb{R}\end{equation}
+Es wird also
+\begin{eqnarray}h(x) & = & \cos(2x) = \cos^2(x) - \sin^2(x) \nonumber \\
+& = & 1 - 2 \sin^2(x)\end{eqnarray}
+und mit
+\begin{equation}i(x) = \sin^2(x) = \sin(x) \cdot \sin(x)\end{equation}
+wird
+\begin{eqnarray}i'(x) & = & \sin(x) \cdot \cos(x) + \sin(x) \cdot \cos(x) \nonumber \\
+& = & 2 \sin(x) \cdot \cos(x) \nonumber \\
+& = & \sin(2x)\end{eqnarray}
+Damit erhalten wir
+\begin{equation}h'(x) = -2 \sin(2x)\end{equation}
+Diskutiere die Funktion
+\begin{equation}f: [0; 2 \pi ] \mapsto \mathbb{R} \quad \mbox{mit} \quad f(x) = 2 \sin(x) + \sin(2x)\end{equation}
+TODO: Exmaple fertig
+\end{myexample}
 
+\chapter{Integralrechnung}
+\section{Stammfunktion}
+Wir kennen die Abbildung $f'$ einer differenzierbaren Funktion $f$ und suchen $f(x)$.\\
+Ist
+\begin{equation}f'(x) = x^3 - x^2 + x + 4\end{equation}
+so wird
+\begin{equation}f(x) = \frac{x^4}{4} - \frac{x^3}{3} + \frac{x^2}{2} + 4x\end{equation}
+Ist $g'(x) = \cos(x)$, so ist $g(x) = \sin(x)$. Aber auch
+\begin{equation}f(x) = \frac{x^4}{4} - \frac{x^3}{3} + \frac{x^2}{2} + 4x + 11\end{equation}
+\begin{equation}f(x) = \frac{x^4}{4} - \frac{x^3}{3} + \frac{x^2}{2} + 4x + \sqrt{17}\end{equation}
+und
+\begin{equation}g(x) = \sin(x) + 9\end{equation}
+\begin{equation}g(x) = \sin(x) - \frac{7}{11}\end{equation}
+\begin{mydef}Ist $f(x)$ die Ableitung einer Funktion $F(x)$, so heisst $F$ eine \underline{Stammfunktion} von $f$:
+\begin{equation}F'(x) = f(x)\end{equation}
+Die Menge aller Stammfunktionen heisst \underline{unbestimmtes Integral}, wofür wir
+\begin{equation}\int \! f(x) \, \mathrm{d} x = F(x) + C\end{equation}
+schreiben. Dabei heisst
+\begin{itemize}
+\item $f(x)$ der \underline{Integrand}
+\item $\mathrm{d}x$ das \underline{Differential}
+\item $C \in \mathbb{R}$ die \underline{Integrationskonstante}
+\end{itemize}
+\end{mydef}
+\begin{myexample}
+\begin{enumerate}Wir berechnen die unbestimmten Integrale:
+\item \begin{equation}\int \! 4x^3 - 3x \, \mathrm{d} x = x^4 - \frac{3x^2}{2} + C\end{equation}
+\item \begin{equation}\int \! 2 \cos(x) + 3 \sin(x) \, \mathrm{d} x = 2 \sin(x) - 3\cos(x) + C\end{equation}
+\item \begin{equation}\int \! at^2 + bt + c \, \mathrm{d} t = a \frac{t^3}{3} + b \frac{t^2}{2} + ct + D\end{equation}
+\begin{equation}\int \! at^2 + bt + c \, \mathrm{d} a = \frac{a^2}{2} \cdot \frac{t^2}{2} + bta + ca + D\end{equation}
+\end{enumerate}\end{myexample}
+Die Regeln der Differenzialrechnung übertragen sich auf die Integralrechnung
+\begin{enumerate}
+\item \begin{equation}\int \! f(x) + g(x) \, \mathrm{d} x = \int \! f(x) \, \mathrm{d} x + \int \! g(x) \, \mathrm{d} x\end{equation}
+\item \begin{equation}k \in \mathbb{R}: \int \! k \cdot f(x) \, \mathrm{d} x = k \cdot \int \! f(x) \, \mathrm{d} x\end{equation}
+\item \begin{equation}\int \! x^p \, \mathrm{d} x = \frac{x^{p+1}}{p+1} \quad ; \quad p \in \mathbb{R} \setminus \{-1\}\end{equation}
+\end{enumerate}
+\begin{myexample}TODO: Beispiel\end{myexample}
+\section{Flächeninhalte}
+Welchen Inhalt besitzt die durch den Graphen von
+\begin{equation}f: \mathbb{R} \mapsto \mathbb{R}_0^+ \quad \mbox{mit} \quad f(x) = x^2\end{equation}
+die Gerade $x=b$ $(b > 0)$ und die x-Achse begrenzte Fläche?
+\\\\TODO: Grafik\\\\
+Wir machen eine Näherung mit $n$ Rechtecken der Breite $\frac{b}{n}$, und zwar solche die "zu gross" sind mit Flächeninhalt $F_i (i=1,2,3,...,n)$ und solche, die "zu klein" sind mit Flächeninhalt $f_k (k=1,2,3,...,n)$ um den gesamten Flächeninhalt $F$ von oben und unten zu nähern.
+\\\\TODO: Grafik\\\\
+mit
+\begin{equation}s_n = \sum_{i=1}^n F_i \quad , \quad s_n = \sum_{k=1}^n f_k\end{equation}
+Es ist
+\begin{equation}F_1 = \frac{b}{n} \cdot f(\frac{b}{n}) = \frac{b}{n} (\frac{b}{n})^2 = \frac{b^3}{n^3}\end{equation}•
 \end{document}

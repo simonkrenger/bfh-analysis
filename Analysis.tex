@@ -684,7 +684,7 @@ Die Regeln der Differenzialrechnung übertragen sich auf die Integralrechnung
 \begin{enumerate}
 \item \begin{equation}\int \! f(x) + g(x) \, \mathrm{d} x = \int \! f(x) \, \mathrm{d} x + \int \! g(x) \, \mathrm{d} x\end{equation}
 \item \begin{equation}k \in \mathbb{R}: \int \! k \cdot f(x) \, \mathrm{d} x = k \cdot \int \! f(x) \, \mathrm{d} x\end{equation}
-\item \begin{equation}\int \! x^p \, \mathrm{d} x = \frac{x^{p+1}}{p+1} \quad ; \quad p \in \mathbb{R} \setminus \{-1\}\end{equation}
+\item \begin{equation}\int \! x^p \, \mathrm{d} x = \frac{x^{p+1}}{p+1} + C\quad ; \quad p \in \mathbb{R} \setminus \{-1\}\end{equation}
 \end{enumerate}
 \begin{myexample}TODO: Beispiel\end{myexample}
 \section{Flächeninhalte}
@@ -697,5 +697,104 @@ Wir machen eine Näherung mit $n$ Rechtecken der Breite $\frac{b}{n}$, und zwar 
 mit
 \begin{equation}s_n = \sum_{i=1}^n F_i \quad , \quad s_n = \sum_{k=1}^n f_k\end{equation}
 Es ist
-\begin{equation}F_1 = \frac{b}{n} \cdot f(\frac{b}{n}) = \frac{b}{n} (\frac{b}{n})^2 = \frac{b^3}{n^3}\end{equation}•
+\begin{equation}F_1 = \frac{b}{n} \cdot f(\frac{b}{n}) = \frac{b}{n} (\frac{b}{n})^2 = \frac{b^3}{n^3}\end{equation}
+\begin{equation}F_2 = \frac{b}{n} \cdot f(\frac{2b}{n}) = \frac{b}{n} \cdot \frac{4b^2}{n^2} = 4 \cdot \frac{b^3}{n^2}\end{equation}
+\begin{center}...\end{center}
+\begin{equation}F_k = \frac{b}{n} \cdot f(\frac{k \cdot b}{n} = k^2 \cdot \frac{b^3}{n^3}\end{equation}
+\begin{center}...\end{center}
+\begin{equation}F_n = \frac{b}{n} \cdot f(\frac{n \cdot b}{n} = \frac{b}{n} \cdot b^2 = n^2 \cdot \frac{b^3}{n^3}\end{equation}
+und so wird die \underline{Obersumme} $O_n := F_1 + F_2 + ... + F_n$
+\begin{equation}O_n = \frac{b^3}{n^3} + 4 \cdot \frac{b^3}{n^3} + 9 \cdot \frac{b^3}{n^3} + ... + n^2+\frac{b^3}{n^3}\end{equation}
+\begin{equation}O_n = \frac{b^3}{n^3}(1 + 4 + 9 + ... + n^2)\end{equation}
+Weiter ist
+\begin{eqnarray}
+f_1 = 0 & &\nonumber \\
+f_2 = F_1 & \mbox{und} & \mbox{allgemein: } f_i = F_{i-1}\end{eqnarray}
+Also
+\begin{equation}f_2 = \frac{b^3}{n^3}, f_3 = 4*\frac{b^3}{n^3}, ..., f_n = (n-1)^2 \cdot \frac{b^3}{n^3}\end{equation}
+und so wird die \underline{Untersumme} $U_n := f_1 + f_2 + ... + f_n$
+\begin{equation}U_n = \frac{b^3}{n^3} (1 + 4 + 9 + 16 + ... + (n-1)^2)\end{equation}
+Es ist
+\begin{equation}1^2 + 2^2 + 3^2 + ... + n^2 = \frac{n(n+1)(2n+1)}{6}\end{equation}
+(Siehe Diskrete Mathematik, Kapitel 3.2 für Formel) und erhalten damit
+\begin{equation}O_n = \frac{b^3}{n^3} \cdot \frac{n(n+1)(2n+1)}{6}\end{equation}
+\begin{equation}O_n = \frac{b^3}{6} \cdot \frac{(n+1)(2n+1)}{n^2}\end{equation}
+Mit
+\begin{equation}1^2 + 2^2 + 3^2 + ... + n^2 = \frac{n(n-1)(2n-1)}{6}\end{equation}
+wird
+\begin{equation}U_n = \frac{b^3}{n^3} \cdot \frac{n(n-1)(2n-1)}{6}\end{equation}
+\begin{equation}U_n = \frac{b^3}{6} \cdot \frac{(n-1)(2n-1)}{n^2}\end{equation}
+Nun vergrössern wir die Zahl der Rechtecke, um eine bessere Näherung zu erhalten.\\
+Ist
+\begin{equation}\forall n \in \mathbb{N}: O_{n+1} < O_n \label{intervallschachtelung-1}\end{equation}
+\begin{equation}\forall n \in \mathbb{N}: U_{n+1} > U_n \label{intervallschachtelung-2}\end{equation}
+\begin{equation}\lim_{n \to \infty} (O_n - U_n) = 0 \label{intervallschachtelung-3}\end{equation}
+so erhalten wir eine \underline{Intervallschachtelung} für den gesuchten Flächeninhalt $F$.
+\\\\TODO: Grafik\\\\
+\begin{equation}[U_1;0] \supset [U_2;O_2] \supset [U_3; O_3] \supset ...\end{equation}
+Betrachten wir die Skizze, so sehen wir, dass \ref{intervallschachtelung-1} und \ref{intervallschachtelung-2} erfüllt sind und an der Stelle von \ref{intervallschachtelung-3} können wir auch $\lim_{n \to \infty} U_n$ und $\lim_{n \to \infty} O_n$ bestimmen. Sind diese Limites gleich, so ist \ref{intervallschachtelung-3} erfüllt und F gefunden.\\\\
+Es ist
+\begin{eqnarray}\lim_{n \to \infty} O_n & = & \lim_{n \to \infty} \frac{b^3}{6} \frac{(n+1)(2n+1)}{n^2} \nonumber \\
+& = & \frac{b^3}{6} \cdot \lim_{n \to \infty} \frac{n+1}{n} \cdot \frac{2n+1}{n} \nonumber \\
+& = & \frac{b^3}{6} \cdot \lim_{n \to \infty} (1 + \frac{1}{n})(2 + \frac{1}{n}) \nonumber \\
+& = & \frac{b^3}{6} \cdot 1 \cdot 2 = \frac{b^3}{3}\end{eqnarray}
+und
+\begin{eqnarray}\lim_{n \to \infty} U_n & = & \lim_{n \to \infty} \frac{b^3}{6} \frac{(n-1)(2n-1)}{n^2} \nonumber \\
+& = & \frac{b^3}{6} \cdot \lim_{n \to \infty} \frac{n-1}{n} \cdot \frac{2n-1}{n} \nonumber \\
+& = & \frac{b^3}{6} \cdot \lim_{n \to \infty} (1 - \frac{1}{n})(2 - \frac{1}{n}) \nonumber \\
+& = & \frac{b^3}{6} \cdot 1 \cdot 2 = \frac{b^3}{3}\end{eqnarray}
+Also ist
+\textcolor{red}{\begin{equation}F = \frac{b^3}{6}\end{equation}}
+Es ist ja
+\begin{equation}\int x^2 \mathrm{d}x = \frac{x^3}{3} + C\end{equation}
+und deshalb definieren wir \underline{das bestimmte Integral}
+\begin{equation}\int_0^b x^2 \mathrm{d}x = \frac{b^3}{3} \quad \quad \mbox{("Integral von 0 bis b")}\end{equation}
+mit der \underline{unteren Grenze} $0$ und der \underline{oberen Grenze} $b$.
+
+\section{Hauptsatz der Differential- und Integralrechnung}
+Kann ein bestimmtes Integral mit Hilfe einer Stammfunktion berechnet werden?
+\begin{quote}\underline{Hauptsatz:} Ist $f$ eine integrierbare Funktion und $[a;b] \subset D_f$, so ist
+\begin{equation}\int_a^b f(x) \mathrm{d}x = F(b)-F(a)\end{equation}
+, wobei $F'(x) = f(x)$\end{quote}
+\underline{Beweisidee:}
+\\\\TODO: Grafik\\\\
+Der Flächeninhalt der schraffierten Fläche ist
+\begin{equation}F(x_0 + h) - F(x_0) = \int_a^{x_0+h} f(x) \mathrm{d}x - \int_a^{x_0} f(x) \mathrm{d}x\end{equation}
+also
+\begin{eqnarray}\frac{F(x_0 + h) - F(x_0)}{h} & = & f(\xi) \quad \mbox{mit} \quad x_0 < \xi < x_0 + h \nonumber \\
+\lim_{h \to 0} \frac{F(x_0 + h) - F(x_0)}{h} & = & \lim_{h \to 0} f(\xi) \nonumber \\
+F'(x) & = & f(x)\end{eqnarray}
+\begin{myexample}Beispiele zu bestimmten Integralen:
+\begin{enumerate}
+\item \begin{equation}\int_1^4 x^3 + x^2\mathrm{d}x\end{equation}
+Es ist $F(x) = \frac{x^4}{4} + \frac{x^3}{3}$ und damit wird
+\begin{equation}F(b) = F(4) = \frac{4^4}{4} + \frac{4^3}{3} = 64 + \frac{64}{3}\end{equation}
+\begin{equation}F(a) = F(1) = \frac{1^4}{4} + \frac{1^3}{3} = \frac{3 + 4}{12}\end{equation}
+und so
+\begin{equation}F(b)-F(a) = 64 + \frac{64}{3} - \frac{1}{4} - \frac{1}{3} = 84 + \frac{3}{4}\end{equation}
+Dies schreiben wir in der Form
+\begin{equation}\int_1^4 x^3 + x^2 \mathrm{d}x = \left. \frac{x^4}{4} + \frac{x^3}{3} \right|^{4}_{1} = \frac{4^4}{4} + \frac{4^3}{3} - (\frac{1^4}{4} + \frac{1^3}{3}) = 84 + \frac{3}{4}\end{equation}
+\item \begin{eqnarray}\int_0^{\pi} \sin(x) \mathrm{d}x & = & \left. -\cos(x) \right|^{\pi}_0 \nonumber \\
+& = & -\cos(\pi) - (-\cos(0)) \nonumber \\
+& = & - (-1) - (-1) = 2\end{eqnarray}
+\item \begin{eqnarray} \int_0^{2 \pi} \sin(x) \mathrm{d}x & = &  \left. -\cos(x) \right|^{2 \pi}_0 \nonumber \\
+& = & -\cos(2 \pi) + 1 \nonumber \\
+& = & -1 + 1 = 0 \end{eqnarray}
+\\\\TODO: Grafik\\\\
+Wir sehen also, dass
+\begin{equation}\int_a^b f(x) \mathrm{d}x < 0\end{equation}
+ist, wenn $f(x)$ im Intervall $[a;b]$ negativ ist.
+\item TODO
+\end{enumerate}\end{myexample}
+\subsection{Zwei Graphen}
+TODO: Grafik\\\\
+Es ist
+\begin{equation}F = \int_a^b f(x) \mathrm{d}x - \int_a^b g(x) \mathrm{d}x = \int_a^b f(x)-g(x) \mathrm{d}x\end{equation}
+\\\\TODO: Grafik\\\\
+Wir wählen eine neue $\overline{x}$-Achse so, dass $f(\overline{x}) > 0$ und $g(\overline{x}) > 0$ für $x_1 < \overline{x} < x_2$. Dann ist $f(\overline{x}) = f(x) + k, g(\overline{x}) = g(x) + k$ und
+\begin{equation}F = \int_{x_1}^{x_2} f(\overline{x}) - g(\overline{x}) \mathrm{d}\overline{x}\end{equation}
+Also
+\begin{equation}F = \int_{x_1}^{x_2} f(x)+k - (g(x) + k) \mathrm{d}x\end{equation}
+\textcolor{red}{\begin{equation}F = \int_{x_1}^{x_2} f(x) - g(x) \mathrm{d}x\end{equation}}
+Falls $x_1, x_2$ zwei aufeinanderliegende Schnittpunkte sind.
 \end{document}
